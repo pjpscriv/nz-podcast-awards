@@ -25,7 +25,7 @@ function createPodcastCard(podcast: Podcast, position: number, compact: boolean 
     return `
       <div class="podcast-card podcast-card-compact">
         <div class="medal medal-${position}">${medal}</div>
-        <img src="/imgs/${podcast.image}" alt="${podcast.title}" class="podcast-image" />
+        <img src="${import.meta.env.BASE_URL}imgs/${podcast.image}" alt="${podcast.title}" class="podcast-image" />
         <div class="podcast-info">
           <h3>${podcast.title}</h3>
           <!-- <div class="podcast-links">${links}</div> -->
@@ -36,7 +36,7 @@ function createPodcastCard(podcast: Podcast, position: number, compact: boolean 
   
   return `
     <div class="podcast-card">
-      <img src="/imgs/${podcast.image}" alt="${podcast.title}" class="podcast-image" />
+      <img src="${import.meta.env.BASE_URL}imgs/${podcast.image}" alt="${podcast.title}" class="podcast-image" />
       <div class="podcast-info">
         <h3>${podcast.title}</h3>
         <p class="podcast-description">${podcast.description}</p>
