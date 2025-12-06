@@ -5,5 +5,6 @@ export default defineConfig({
   base: '/nz-podcast-awards/',
   build: {
     outDir: 'dist'
-  }
+  },
+  publicDir: 'public'
 })
