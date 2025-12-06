@@ -294,7 +294,7 @@ const Untidy: Podcast = {
 }
 const UnfilteredwithDaveLetele: Podcast = {
   title: 'Unfiltered with Dave Letele',
-  image: 'UnfilteredwithDaveLetele.jpg',
+  image: 'UnfilteredWithDaveLetele.jpg',
   links: [{
     link: 'https://shows.acast.com/unfiltered-with-dave-letele',
     type: 'website'
@@ -504,7 +504,7 @@ const WitiUnderwater: Podcast = {
 }
 const WhatALad: Podcast = {
   title: 'What A Lad',
-  image: 'WhatALad.jpg',
+  image: 'WhataLad.jpg',
   links: [{
     link: 'https://www.whatalad.com/',
     type: 'website'
