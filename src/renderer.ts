@@ -1,5 +1,5 @@
 import type { Podcast, Network, Award, NetworkAward, LinkType, AwardsYear, Link } from './types';
-import { podcastAwards2025 } from './data'
+import { podcastAwards2025 } from './data-2025'
 
 // Helper functions
 function slugify(text: string): string {
@@ -71,8 +71,8 @@ function renderHighlightedAward(award: Award, containerId: string) {
     <div class="award-section">
       <div class="podcasts">
         ${createPodcastCard(award.p1, 1)}
-        ${createPodcastCard(award.p2, 2)}
-        ${createPodcastCard(award.p3, 3)}
+        ${award.p2 ? createPodcastCard(award.p2, 2) : ''}
+        ${award.p3 ? createPodcastCard(award.p3, 3) : ''}
       </div>
     </div>
   `;
@@ -95,8 +95,8 @@ function renderGridAward(award: Award, containerId: string) {
         ${createPodcastCard(award.p1, 1)}
       </div>
       <div class="award-runners-up">
-        ${createPodcastCard(award.p2, 2, true)}
-        ${createPodcastCard(award.p3, 3, true)}
+        ${award.p2 ? createPodcastCard(award.p2, 2, true) : ''}
+        ${award.p3 ? createPodcastCard(award.p3, 3, true) : ''}
       </div>
     </div>
   `;

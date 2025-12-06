@@ -21,8 +21,8 @@ export type Link = {
 export type Award = {
   name: string;
   p1: Podcast;
-  p2: Podcast;
-  p3: Podcast;
+  p2?: Podcast;
+  p3?: Podcast;
   sponsor?: string;
 }
 
