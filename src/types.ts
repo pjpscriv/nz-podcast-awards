@@ -8,9 +8,10 @@ export type Podcast = {
 export type Network = {
   name: string;
   link: string;
+  image: string;
 }
 
-export type LinkType = 'website' | 'apple' | 'spotify' | 'youtube' | 'bluesky' | 'facebook';
+export type LinkType = 'website' | 'apple' | 'spotify' | 'youtube';
 
 export type Link = {
   link: string;

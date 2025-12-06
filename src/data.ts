@@ -28,7 +28,7 @@ const Interconnector: Podcast = {
   links: [{
     link: 'https://www.youtube.com/@Interconnector-podcast',
     type: 'youtube'
-  },{
+  }, {
     link: 'https://open.spotify.com/show/40vpfpl0QFF0euLQHT9hYP',
     type: 'spotify'
   }],
@@ -340,7 +340,7 @@ const AmongTheMissing: Podcast = {
   links: [{
     link: 'https://www.amongthemissingpodcast.com/',
     type: 'website'
-  },{
+  }, {
     type: 'apple',
     link: 'https://podcasts.apple.com/nz/podcast/among-the-missing/id1774082897'
   }, {
@@ -640,15 +640,18 @@ const PaulTheOtherOnePodcast: Podcast = {
 
 const TheSpinoff: Network = {
   name: 'The Spinoff',
-  link: 'https://thespinoff.co.nz/'
+  link: 'https://thespinoff.co.nz/',
+  image: 'TheSpinoff.jpg'
 }
 const FrankPodcasts: Network = {
   name: 'Frank Podcasts',
-  link: 'https://www.frankpodcasts.nz/'
-   }
+  link: 'https://www.frankpodcasts.nz/',
+  image: 'FrankPodcasts.jpg'
+}
 const BHN: Network = {
   name: 'BHN',
-  link: 'https://bhn.nz/'
+  link: 'https://bhn.nz/',
+  image: 'BHN.jpg'
 }
 
 
@@ -666,8 +669,8 @@ export const podcastAwards2025: AwardsYear = {
   bestPodcasts: [
     {
       name: "Best Arts and Culture Podcast",
-      p1: TheDomHarveyPodcast, 
-      p2: Interconnector, 
+      p1: TheDomHarveyPodcast,
+      p2: Interconnector,
       p3: WhatMattersMost
     },
     {
@@ -826,17 +829,17 @@ export const podcastAwards2025: AwardsYear = {
   ],
   favourites: [
     {
-      name: "Judges' Picks",
-      p1: Interconnector,
-      p2: TheArtfulDodger,
-      p3: ThatsJustCriminal
-    },
-    {
       name: "Listeners' Choice Award",
       p1: BHNBigHairyNews,
       p2: TheHappySaver,
       p3: PaulTheOtherOnePodcast,
       sponsor: "Acast"
+    },
+    {
+      name: "Judges' Picks",
+      p1: Interconnector,
+      p2: TheArtfulDodger,
+      p3: ThatsJustCriminal
     }
   ]
 }
