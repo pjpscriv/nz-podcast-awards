@@ -19,6 +19,12 @@ const TheDomHarveyPodcast: Podcast = {
   }, {
     link: 'https://www.youtube.com/@domharveynz',
     type: 'youtube'
+  }, {
+    type: 'apple',
+    link: 'https://podcasts.apple.com/nz/podcast/the-dom-harvey-podcast/id1590931602'
+  }, {
+    type: 'spotify',
+    link: 'https://open.spotify.com/show/3A9ahwqQO5Uxd4SUqlsIRL'
   }],
   description: "It started off as a podcast about people who run… Now it’s just a podcast about people. Hosted by New Zealand broadcaster, author and marathon runner, Dom Harvey."
 }
@@ -196,6 +202,9 @@ const TheDetail: Podcast = {
   }, {
     type: 'spotify',
     link: 'https://open.spotify.com/show/3cd97Zh9oRlNtOPqxxjErz'
+  }, {
+    link: 'https://podcasts.apple.com/nz/podcast/the-detail/id1459959514',
+    type: 'apple'
   }],
   description: "Join The Detail team six days a week as they make sense of the big stories with the country’s best journalists and experts. "
 }
@@ -263,7 +272,7 @@ const GUILT: Podcast = {
   description: "On August 28th 1999, 16 year old Jessica Gaudie was babysitting in Nambour, Sunshine Coast, Australia, when she vanished without a trace. In 2001 Aboriginal tracker Derek Sam was convicted of her murder, but denies his involvement and will not lead Police to Jessica's remains. 26 years later Ryan is on the ground in Australia looking for answers, and finds that he's not just looking for one missing woman, he's looking for three."
 }
 const TheCurvePodcast: Podcast = {
-  title: 'The Curve Podcast',
+  title: 'The Curve',
   image: 'TheCurve.jpg',
   links: [{
     link: 'https://thecurveplatform.com/',

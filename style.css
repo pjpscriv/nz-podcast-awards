@@ -5,6 +5,7 @@ html, body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #f9f9f9;
   color: #222;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -13,16 +14,24 @@ body {
   padding: 20px;
 }
 
+/* Font Variable */
+:root {
+  --title-font: 'PT Serif', serif;
+}
+
 h1 {
   text-align: center;
   color: #333;
+  margin-top: 20px;
   font-size: 2.5em;
+  font-family: var(--title-font);
 }
 
 p {
   color: #666;
   max-width: 800px;
   margin: 10px auto;
+  line-height: 1.6;
 }
 
 del {
@@ -41,28 +50,90 @@ select {
   margin: 20px auto;
   padding: 10px 20px;
   font-size: 16px;
-  border: 2px solid #333;
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   background: white;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#table-of-contents {
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.table-of-contents-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 800px;
+}
+
+.table-of-contents-list a {
+  text-decoration: none;
+  color: #444;
+  display: block;
+  padding: 2px 2px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.table-of-contents-list a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.section-title {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.section-title > a {
+  color: #222;
+  font-weight: 700;
+  font-family: var(--title-font);
+}
+
+.section-title [href="#podcast-of-the-year"] {
+  font-size: 1.1em;
+}
+
+.sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 4px 12px;
+}
+
+.sub-list li a {
+  font-size: 0.95em;
+  color: #555;
+  border-left: 2px solid transparent;
 }
 
 h2 {
   color: #333;
-  margin: 40px 0 0;
+  margin: 80px 0 0;
   text-align: center;
   font-size: 2.5em;
+  font-family: var(--title-font);
 }
 
 /* Big highlight award section */
 .award-section {
-  margin-bottom: 50px;
+  margin: 40px auto 50px;
 }
 
 .award-section h3 {
   color: #444;
   margin-bottom: 20px;
   font-size: 1.3em;
+  font-family: var(--title-font);
 }
 
 .award-section .podcast-links {
@@ -92,6 +163,7 @@ h2 {
   justify-content: end;
   padding: 2px;
   text-wrap: balance;
+  font-family: var(--title-font);
 }
 
 .award-runners-up {
@@ -107,6 +179,7 @@ h2 {
   color: #888;
   font-weight: normal;
   font-style: italic;
+  font-family: 'Inter', sans-serif;
 }
 
 .sponsor-spacer {
@@ -246,3 +319,8 @@ h2 {
   }
 }
 
+@media (max-width: 375px) {
+  #table-of-contents {
+    padding: 0;
+  }
+}

@@ -2,6 +2,13 @@ import type { Podcast, Network, Award, NetworkAward, LinkType, AwardsYear, Link 
 import { podcastAwards2025 } from './data'
 
 // Helper functions
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+}
+
 function getLinkText(type: LinkType): string {
   const icons: Record<LinkType, string> = {
     website: 'Website',
@@ -49,15 +56,19 @@ function createNetworkCard(network: Network, position: number): string {
 }
 
 function renderHighlightedAward(award: Award, containerId: string) {
+  const title = document.querySelector(`h2:has(+ #${containerId})`);
   const container = document.getElementById(containerId);
-  if (!container) return;
+  if (!container || !title) {
+    console.error(`Could not find container or title for ${containerId}`);
+    return;
+  }
 
+  const titleHtml = `
+    ${award.sponsor ? `<div class="sponsor">Sponsored by ${award.sponsor}</div>` : ''}
+    ${award.name}
+  `
   const html = `
     <div class="award-section">
-      <h3>
-        ${award.sponsor ? `<div class="sponsor">Sponsored by ${award.sponsor}</div>` : ''}
-        ${award.name}
-      </h3>
       <div class="podcasts">
         ${createPodcastCard(award.p1, 1)}
         ${createPodcastCard(award.p2, 2)}
@@ -66,6 +77,7 @@ function renderHighlightedAward(award: Award, containerId: string) {
     </div>
   `;
 
+  title.innerHTML = titleHtml;
   container.innerHTML += html;
 }
 
@@ -74,7 +86,7 @@ function renderGridAward(award: Award, containerId: string) {
   if (!container) return;
 
   const html = `
-    <div class="award-grid-item">
+    <div class="award-grid-item" id="${slugify(award.name)}">
       <h3 class="award-grid-title">
         ${award.sponsor ? `<span class="sponsor">Sponsored by ${award.sponsor}</span>` : ''}
         ${award.name}
@@ -97,7 +109,7 @@ function renderNetworkAward(award: NetworkAward, containerId: string) {
   if (!container) return;
 
   const html = `
-    <div class="award-section">
+    <div class="award-section" id="${slugify(award.name)}">
       <h3>${award.name}</h3>
       <div class="podcasts">
         ${createNetworkCard(award.p1, 1)}
@@ -110,8 +122,41 @@ function renderNetworkAward(award: NetworkAward, containerId: string) {
   container.innerHTML = html;
 }
 
+function renderTableOfContents(data: AwardsYear) {
+  const container = document.getElementById('table-of-contents');
+  if (!container) return;
+
+  const categoryLinks = data.bestPodcasts.map(award => `<li><a href="#${slugify(award.name)}">${award.name}</a></li>`);
+  const specialLinks = data.specialAwards.map(award => `<li><a href="#${slugify(award.name)}">${award.name}</a></li>`);
+  const favouriteLinks = data.favourites.map(award => `<li><a href="#${slugify(award.name)}">${award.name}</a></li>`);
+
+  const html = `
+    <ul class="table-of-contents-list">
+      <li class="section-title"><a href="#podcast-of-the-year">Podcast of the Year</a></li>
+      <li class="section-title"><a href="#category-awards">Best Podcasts by Category</a></li>
+      <ul class="sub-list">
+        ${categoryLinks.join('')}
+      </ul>
+      <li class="section-title"><a href="#special-awards">Special Awards</a></li>
+      <ul class="sub-list">
+        ${specialLinks.join('')}
+      </ul>
+      <li class="section-title"><a href="#favourite-awards">Judge & Listener Favourites</a></li>
+      <ul class="sub-list">
+        ${favouriteLinks.join('')}
+      </ul>
+      <li class="section-title"><a href="#network-award">Best Network or Publisher</a></li>
+    </ul>
+  `;
+
+  container.innerHTML = html;
+}
+
 // Render the awards
 export function renderAllAwards(data: AwardsYear) {
+  // Add table of contents
+  renderTableOfContents(data);
+
   // Podcast of the Year
   renderHighlightedAward(data.podcastOfTheYear, 'podcast-of-the-year');
 
@@ -145,6 +190,8 @@ export function renderAllAwards(data: AwardsYear) {
   // Network Award
   renderNetworkAward(data.networkAward, 'network-award');
 }
+
+
 
 
 
