@@ -1,5 +1,6 @@
-import type { Podcast, Network, Award, NetworkAward, LinkType, AwardsYear, Link } from './types';
-import { podcastAwards2025 } from './data-2025'
+import { podcastAwards2025 } from './data-2025';
+import { podcastAwards2024 } from './data-2024';
+import type { AwardsYear, Link, LinkType, Network, NetworkAward, Podcast, Award } from './types';
 
 // Helper functions
 function slugify(text: string): string {
@@ -120,6 +121,7 @@ function renderTableOfContents(data: AwardsYear) {
   const specialLinks = data.specialAwards.map(award => `<li><a href="#${slugify(award.name)}">${award.name}</a></li>`);
   const favouriteLinks = data.favourites.map(award => `<li><a href="#${slugify(award.name)}">${award.name}</a></li>`);
   container.innerHTML = `
+    <summary><i>Table of Contents</i></summary>
     <ul class="table-of-contents-list">
       <li class="section-title"><a href="#podcast-of-the-year">Podcast of the Year</a></li>
       <li class="section-title"><a href="#category-awards">Best Podcasts by Category</a></li>
@@ -150,6 +152,7 @@ export function renderAllAwards(data: AwardsYear) {
   // Category Awards - Grid Layout
   const categoryContainer = document.getElementById('category-awards');
   if (categoryContainer) {
+    categoryContainer.innerHTML = '';
     categoryContainer.className = 'awards-grid';
   }
   data.bestPodcasts.forEach(award => {
@@ -159,6 +162,7 @@ export function renderAllAwards(data: AwardsYear) {
   // Special Awards - Grid Layout
   const specialContainer = document.getElementById('special-awards');
   if (specialContainer) {
+    specialContainer.innerHTML = '';
     specialContainer.className = 'awards-grid';
   }
   data.specialAwards.forEach(award => {
@@ -168,6 +172,7 @@ export function renderAllAwards(data: AwardsYear) {
   // Favourites
   const favouriteContainer = document.getElementById('favourite-awards');
   if (favouriteContainer) {
+    favouriteContainer.innerHTML = '';
     favouriteContainer.className = 'awards-grid';
   }
   data.favourites.forEach(award => {
@@ -179,12 +184,40 @@ export function renderAllAwards(data: AwardsYear) {
 }
 
 
+// Run when DOM is ready
+const awardsData: Record<string, AwardsYear> = {
+  '2025': podcastAwards2025,
+  '2024': podcastAwards2024
+};
 
-
+function handleYearChange(event: Event) {
+  const select = event.target as HTMLSelectElement;
+  const year = select.value;
+  const data = awardsData[year];
+  if (data) {
+    renderAllAwards(data);
+  }
+}
 
 // Run when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => renderAllAwards(podcastAwards2025));
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initial render
+    renderAllAwards(podcastAwards2025);
+
+    // Setup year selector
+    const yearSelector = document.getElementById('year-selector');
+    if (yearSelector) {
+      yearSelector.addEventListener('change', handleYearChange);
+    }
+  });
 } else {
+  // Initial render if already loaded
   renderAllAwards(podcastAwards2025);
+
+  // Setup year selector if already loaded
+  const yearSelector = document.getElementById('year-selector');
+  if (yearSelector) {
+    yearSelector.addEventListener('change', handleYearChange);
+  }
 }

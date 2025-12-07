@@ -694,8 +694,8 @@ export const HeReoTawhito: Podcast = {
   image: 'HeReoTawhitoConversationsAboutMōteatea.jpg',
   description: "Mōteatea is a centuries-old tradition of chanted song-poetry; a great literary and musical art form that expresses the powerful portrayal of storytelling and is reflective of the emotional depths of a Māori world view. Its vast richness is yet to be fully understood. In this series hosted by Crystal Edwards, we hold conversations with some of the world's leading experts on mōteatea and ask them: What exactly is mōteatea? How has it changed since colonisation? What issues does it face today?",
   links: [{
-      link: 'https://open.spotify.com/show/3aOEMRSQrkgrnm30F2Bvcp',
-      type: 'spotify'
+    link: 'https://open.spotify.com/show/3aOEMRSQrkgrnm30F2Bvcp',
+    type: 'spotify'
   }, {
     type: 'youtube',
     link: 'https://www.youtube.com/playlist?list=PLjqwPJu2kmN7NbCsDwRsOUIQglXXKuN43'
@@ -723,7 +723,7 @@ export const ThePayoff: Podcast = {
 
 export const ThisIsKiwi: Podcast = {
   title: 'This Is Kiwi',
-  image: 'ThisIsKiwi.jpg',
+  image: 'ThisisKiwi.jpg',
   description: "Celebrating extraordinary achievements by ordinary people, This is Kiwi explores the inspiring stories of incredible New Zealanders. In season three Jane Yee talks to six remarkable guests that represent a new generation of Kiwi using the power of passion to unlock financial freedom. Learn about their motivations, the influences that shape their mindset and explore the concept of knowledge for better. Discover the power of determination, passion, and self-belief that can transform your own life and help make a difference in the world.",
   links: [{
     link: 'https://open.spotify.com/show/5nxDXZ6MUSqIpSndL29Fvp',
@@ -755,7 +755,7 @@ export const LeadOnPurposeWithJamesLaughlin: Podcast = {
 
 export const PowrUp: Podcast = {
   title: 'PowrUp',
-  image: 'PowrUp.jpg',
+  image: 'Powrup.jpg',
   description: "Nat and Kristen are on a mission to amplify your impact - think of us as your personal cheerleaders. We’ve been there and done that and are open-sourcing the career playbook. Filled with actionable insights and entertaining commentary, each episode will equip you with the confidence and skills to shape your career on your terms",
   links: [{
     link: 'https://open.spotify.com/show/2sC4y2gnTFmLRbSLHd7CLh',
@@ -956,7 +956,7 @@ export const NavigatingAdultADHD: Podcast = {
 }
 export const NoSuchThingAsNormal: Podcast = {
   title: 'No Such Thing As Normal',
-  image: 'NoSuchThingAsNormal.jpg',
+  image: 'NoSuchThingasNormal.jpg',
   description: "At least 20% of New Zealanders are believed to be neurodivergent, but there is very little awareness, understanding and support for people with conditions such as ADHD, Autism and Dyslexia. Sonia Gray has a neurodivergent daughter and is an ADHDer herself. In this 10-part series she’ll talk to dozens of experts and people with a lived-experience of neurodiversity to better understand how we can support and celebrate those whose brains are wired differently.",
   links: [{
     link: 'https://open.spotify.com/show/2LTy8uLSux6IpVRh3ermKZ',
@@ -973,62 +973,92 @@ export const Scigest: Podcast = {
   }]
 }
 export const SpearoDiaries: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'Spearo Diaries',
+  image: 'SpearoDiaries.jpg',
+  description: "A Spearfishing Podcast Show. Hosts : Elise & Laura - Two Kiwi Mermaids interviewing Spearo Legends & chatting about Spearfishing and Ocean Adventures. Episodes consist of hosts Laura & Elise - Two Wahine female Spearo Divers from New Zealand chatting about spearfishing adventures and competitions . As well as quality and entertaining interviews with some of the most legendary and passionate spearos in the water . We think capturing the stories of people who love the spearo lifestyle, just as much as we do , is worth filling your earholes with ! Enjoy !",
+  links: [{
+    link: 'https://open.spotify.com/show/4P8ffFsQkRTSxg45qcbjwL',
+    type: 'spotify'
+  }]
 }
 export const TheCryptidFactor: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'The Cryptid Factor',
+  image: 'TheCryptidFactor.jpg',
+  description: "Three best buddies - Rhys Darby, Dan Schreiber, and Leon 'Buttons' Kirkbeck bring you The Cryptid Factor - a podcast dedicated to all things weird that are yet to be defined by science.Since 2008 they have passionately (and often awkwardly) been discussing 'cryptids' and monsters like Yeti, Chupacabra, Bigfoot and Nessie - as well as weird news of the world, UFO's, Time travellers, robots and space stuff.Though they take these pseudosciences as seriously as they can, they struggle to take themselves seriously at all.Hosted by comedian and actor Rhys Darby, star of top rating podcast 'No Such Thing as a Fish' Dan Schreiber - and Pulling it all together is their best friend, 'Buttons'. If anything goes wrong, it is probably his fault.",
+  links: [{
+    link: 'https://open.spotify.com/show/6N8YaO6bqGr7RtCMovP4HL',
+    type: 'spotify'
+  }]
 }
 export const TheDOCSoundsOfSciencePodcast: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'DOC Sounds of Science Podcast',
+  image: 'DOCSoundsofSciencePodcast.jpg',
+  description: "The DOC Sounds of Science podcast is a behind-scenes-look at conservation in Aotearoa New Zealand. Every episode we chat with one of our experts about their most interesting days on the job.",
+  links: [{
+    link: 'https://open.spotify.com/show/6VH1bKzD0IsEyc53tsRx1r',
+    type: 'spotify'
+  }]
 }
 export const TheElectricRodeo: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'The Electric Rodeo',
+  image: 'TheElectricRodeo.jpg',
+  description: "Welcome to the Electric Rodeo – a New Zealand sexuality podcast about sex, pleasure, relationships and everything in between. Every week on the show, we take a deep dive into a new topic, talk to experts, and answer common sex questions. Because sex is normal, messy, pleasurable, intimidating, and a hell of a lot of fun. Ye-haw! Powered by Adulttoymegastore.",
+  links: [{
+    link: 'https://open.spotify.com/show/1dHSKMjIsFfOJz9fZQ2OuU',
+    type: 'spotify'
+  }]
 }
 export const TheGoodSexProject: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'The Good Sex Project',
+  image: 'TheGoodSexProject.jpg',
+  description: "A  podcast about good sex, good relationships and how to have them. Follow creator and host Melody Thomas as she meets everyday New Zealanders, who speak with striking openness and vulnerability about real issues in their sex and love lives. Meet internationally renowned experts with practical advice that you can use in your own life.",
+  links: [{
+    link: 'https://open.spotify.com/show/07F7pCdXe2C43bZXtL1NYY',
+    type: 'spotify'
+  }]
 }
 export const TheHelloFrequency: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'The Hello Frequency',
+  image: 'TheHelloFrequencyALifestylePodcast.jpg',
+  description: "The Hello Frequency Lifestyle Podcast is a captivating exploration of human experiences through candid dialogues. I, Caya, delve into the power of empathy, inviting individuals to share their authentic stories and unravel the threads of empathy for positive transformations and healing.",
+  links: [{
+    link: 'https://open.spotify.com/show/1WrjzKLcSflpSvaGSMM5Xf',
+    type: 'spotify'
+  }]
 }
 export const TheTrialSeason2: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'The Trial - Season 2',
+  image: 'TheTrial.jpg',
+  description: "Police are called to the multi-million dollar Auckland home of a successful couple to find the body of Pauline Hanna. A year and a half later, her husband, eye surgeon Philip John Polkinghorne is charged with murder, a charge he denies.",
+  links: [{
+    link: 'https://open.spotify.com/show/0EJ4AJWwdI0pilV6QfQLaw',
+    type: 'spotify'
+  }]
 }
 export const TheWorstIdeaOfAllTime: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'The Worst Idea of All Time',
+  image: 'TheWorstIdeaOfAllTime.jpg',
+  description: "An award-winning smash hit series hosted by kiwi comedians Guy Montgomery and Tim Batt. The pair have been punishing themselves with movies for your enjoyment since Feb 2014, starting by watching and reviewing Grown Ups 2 once a week, every week, for a full year. They applied the same treatment to Sex and The City 2, Sex and The City, We Are You Friends, the Emmanuelle franchise of softcore adult films and now are taking on The Fast and Furious franchise in reverse order.",
+  links: [{
+    link: 'https://open.spotify.com/show/3kFoLE4N4tfKbhbA8h1vCl',
+    type: 'spotify'
+  }]
 }
 export const WatchingTwoDetectives: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'Watching Two Detectives',
+  image: 'WatchingTwoDetectives.jpg',
+  description: "From Sarah Ferris Media, the award-winning producer behind hits like Conning the Con, Klooghless: The Long Con, Stop the Killing, The Bravery Academy, and Guilty Greenie, a new true crime podcast that dives deeper into the heart of unsolved mysteries than ever before. Watching Two Detectives, hosted by retired NSW Police Detectives Scott Rogan and Peter Hogan, revisits the cases that have haunted them, bringing new insights and revelations to light.",
+  links: [{
+    link: 'https://open.spotify.com/show/5UGkvqCwD3FwXm7h8YSgr4',
+    type: 'spotify'
+  }]
 }
 export const TheMorningShift: Podcast = {
-  title: '',
-  image: '',
-  description: "",
-  links: []
+  title: 'The Morning Shift',
+  image: 'THEMORNINGSHIFT.jpg',
+  description: "Join Brook, Jordan & Matua Marc every week day from 5AM for a yarn all things culture, entertainment, sports, funny and thought provoking.",
+  links: [{
+    link: 'https://open.spotify.com/show/1ezJJbZz2kKkoVpDwJRWj0',
+    type: 'spotify'
+  }]
 }

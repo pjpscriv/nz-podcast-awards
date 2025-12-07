@@ -17,11 +17,12 @@
   <script type="module" src="/src/renderer.ts"></script>
   <h1>New Zealand Podcast Awards</h1>
   <p>
-    Podcasts are great. As far as I can tell, the <a href="https://www.nzpodcastawards.com/" target="_blank">New Zealand Podcast Awards</a> 
+    Podcasts are great. As far as I can tell, the <a href="https://www.nzpodcastawards.com/" target="_blank">New Zealand
+      Podcast Awards</a>
     are the biggest event celebrating home-grown podcasts in New Zealand.
   </p>
   <p>
-    Unfortunately, their official website is a bit terrible. It only presents the winners in a long, unstyled list - 
+    Unfortunately, their official website is a bit terrible. It only presents the winners in a long, unstyled list -
     no images, no links, no formatting. 💔
   </p>
   <p>
@@ -31,12 +32,15 @@
   <div class="year-selector">
     <label for="year-selector">Display Awards for:</label>
     <select id="year-selector">
-      <option value="2025">2025</option>
+      <option value="2025" selected>2025</option>
       <option value="2024">2024</option>
     </select>
   </div>
 
-  <div id="table-of-contents"></div>
+  <details id="table-of-contents">
+    <summary>Table of Contents</summary>
+    <!-- Table of contents items will be dynamically inserted here -->
+  </details>
 
   <h2>Podcast of the Year</h2>
   <div id="podcast-of-the-year"></div>
