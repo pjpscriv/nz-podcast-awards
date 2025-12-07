@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NZ Podcast Awards</title>
+  <title>New Zealand Podcast Awards but Prettier</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libertinus+Serif:wght@600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,17 +17,23 @@
   <script type="module" src="/src/renderer.ts"></script>
   <h1>New Zealand Podcast Awards</h1>
   <p>
-    I love podcasts. As far as I know, the New Zealand Podcast Awards are the biggest event
-    celebrating and rewarding home-grown podcasts in New Zealand.</p>
-  <p>
-    Unfortunately, their official website <del>is hella ugly</del>
-    could benefit from a visual refresh.
+    Podcasts are great. As far as I can tell, the <a href="https://www.nzpodcastawards.com/" target="_blank">New Zealand Podcast Awards</a> 
+    are the biggest event celebrating home-grown podcasts in New Zealand.
   </p>
-  <p>Let's see if we can present the winners in a nicer way.</p>
+  <p>
+    Unfortunately, their official website is a bit terrible. It only presents the winners in a long, unstyled list - 
+    no images, no links, no formatting. 💔
+  </p>
+  <p>
+    This site is an attempt to present the winners in a nicer way.
+  </p>
 
-  <select id="year-selector">
-    <option value="2025">2025</option>
-  </select>
+  <div class="year-selector">
+    <label for="year-selector">Display Awards for:</label>
+    <select id="year-selector">
+      <option value="2025">2025</option>
+    </select>
+  </div>
 
   <div id="table-of-contents"></div>
 
