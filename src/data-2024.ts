@@ -9,7 +9,6 @@ import { AlicesSoapbox, BetweenTwoBeers, BHNBigHairyNews, BigStuffQuiz, DanBains
 import { AwardsYear } from "./types";
 
 
-
 export const podcastAwards2024: AwardsYear = {
   year: 2024,
   podcastOfTheYear: {

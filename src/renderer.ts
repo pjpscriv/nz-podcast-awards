@@ -3,10 +3,7 @@ import { podcastAwards2025 } from './data-2025'
 
 // Helper functions
 function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)+/g, '');
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 }
 
 function getLinkText(type: LinkType): string {
@@ -23,21 +20,21 @@ function linkToHtml(link: Link): string {
   return `<a href="${link.link}" target="_blank" rel="noopener" title="${link.type}">${getLinkText(link.type)}</a>`;
 }
 
-function createPodcastCard(podcast: Podcast, position: number, compact: boolean = false): string {
+// Rendering functions
+function createPodcastCard(podcast: Podcast, position: number, compact: boolean = false, description: boolean = false): string {
   const links = podcast.links.map(linkToHtml).join(' ');
   const medal = position === 1 ? 'Gold' : position === 2 ? 'Silver' : 'Bronze';
   const imgUrl = import.meta.env.BASE_URL + 'imgs/' + podcast.image;
-
   return `
     <div class="podcast-card ${compact ? 'podcast-card-compact' : ''}">
       <div class="medal medal-${position}">${medal}</div>
       <img src="${imgUrl}" alt="${podcast.title}" class="podcast-image" />
       <div class="podcast-info">
         <h3>${podcast.title}</h3>
-          <!-- <p class="podcast-description">${podcast.description}</p> -->
-          <div class="podcast-links">${links}</div>
-        </div>
+        ${description ? `<p class="podcast-description">${podcast.description}</p>` : ''}
+        <div class="podcast-links">${links}</div>
       </div>
+    </div>
     `;
 }
 
@@ -62,29 +59,26 @@ function renderHighlightedAward(award: Award, containerId: string) {
     console.error(`Could not find container or title for ${containerId}`);
     return;
   }
-
-  const titleHtml = `
+  title.innerHTML = `
     ${award.sponsor ? `<div class="sponsor">Sponsored by ${award.sponsor}</div>` : ''}
     ${award.name}
-  `
-  const html = `
+  `;
+  container.innerHTML = `
     <div class="award-section">
-      <div class="podcasts">
-        ${createPodcastCard(award.p1, 1)}
-        ${award.p2 ? createPodcastCard(award.p2, 2) : ''}
-        ${award.p3 ? createPodcastCard(award.p3, 3) : ''}
+      <div class="highlight-winner">
+        ${createPodcastCard(award.p1, 1, false, true)}
+      </div>
+      <div class="highlight-runners-up">
+        ${award.p2 ? createPodcastCard(award.p2, 2, true, false) : ''}
+        ${award.p3 ? createPodcastCard(award.p3, 3, true, false) : ''}
       </div>
     </div>
   `;
-
-  title.innerHTML = titleHtml;
-  container.innerHTML += html;
 }
 
 function renderGridAward(award: Award, containerId: string) {
   const container = document.getElementById(containerId);
   if (!container) return;
-
   const html = `
     <div class="award-grid-item" id="${slugify(award.name)}">
       <h3 class="award-grid-title">
@@ -107,8 +101,7 @@ function renderGridAward(award: Award, containerId: string) {
 function renderNetworkAward(award: NetworkAward, containerId: string) {
   const container = document.getElementById(containerId);
   if (!container) return;
-
-  const html = `
+  container.innerHTML = `
     <div class="award-section" id="${slugify(award.name)}">
       <h3>${award.name}</h3>
       <div class="podcasts">
@@ -118,19 +111,15 @@ function renderNetworkAward(award: NetworkAward, containerId: string) {
       </div>
     </div>
   `;
-
-  container.innerHTML = html;
 }
 
 function renderTableOfContents(data: AwardsYear) {
   const container = document.getElementById('table-of-contents');
   if (!container) return;
-
   const categoryLinks = data.bestPodcasts.map(award => `<li><a href="#${slugify(award.name)}">${award.name}</a></li>`);
   const specialLinks = data.specialAwards.map(award => `<li><a href="#${slugify(award.name)}">${award.name}</a></li>`);
   const favouriteLinks = data.favourites.map(award => `<li><a href="#${slugify(award.name)}">${award.name}</a></li>`);
-
-  const html = `
+  container.innerHTML = `
     <ul class="table-of-contents-list">
       <li class="section-title"><a href="#podcast-of-the-year">Podcast of the Year</a></li>
       <li class="section-title"><a href="#category-awards">Best Podcasts by Category</a></li>
@@ -148,8 +137,6 @@ function renderTableOfContents(data: AwardsYear) {
       <li class="section-title"><a href="#network-award">Best Network or Publisher</a></li>
     </ul>
   `;
-
-  container.innerHTML = html;
 }
 
 // Render the awards
