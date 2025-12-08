@@ -1,6 +1,5 @@
-import { podcastAwards2025 } from './data-2025';
-import { podcastAwards2024 } from './data-2024';
-import type { AwardsYear, Link, LinkType, Network, NetworkAward, Podcast, Award } from './types';
+import { awardsData } from './data/awards';
+import type { Award, AwardsYear, Link, LinkType, Network, NetworkAward, Podcast } from './types';
 
 // Helper functions
 function slugify(text: string): string {
@@ -36,18 +35,42 @@ function createPodcastCard(podcast: Podcast, position: number, compact: boolean 
         <div class="podcast-links">${links}</div>
       </div>
     </div>
-    `;
+  `;
 }
 
-function createNetworkCard(network: Network, position: number): string {
+function createNetworkCard(network: Network, position: number, compact: boolean = false): string {
   const medal = position === 1 ? 'Gold' : position === 2 ? 'Silver' : 'Bronze';
   const imgUrl = import.meta.env.BASE_URL + 'imgs/networks/' + network.image;
   return `
-    <div class="podcast-card network-card">
+    <div class="podcast-card network-card ${compact ? 'podcast-card-compact' : ''}">
       <div class="medal medal-${position}">${medal}</div>
       <img src="${imgUrl}" alt="${network.name}" class="podcast-image" />
       <div class="podcast-info">
         <h3><a href="${network.link}" target="_blank" rel="noopener">${network.name}</a></h3>
+      </div>
+    </div>
+  `;
+}
+
+function renderHighlightedNetworkAward(award: NetworkAward, containerId: string) {
+  const title = document.querySelector(`h2:has(+ #${containerId})`);
+  const container = document.getElementById(containerId);
+  if (!container || !title) {
+    console.error(`Could not find container or title for ${containerId}`);
+    return;
+  }
+  title.innerHTML = `
+    ${award.sponsor ? `<div class="sponsor">Sponsored by ${award.sponsor}</div>` : ''}
+    ${award.name}
+  `;
+  container.innerHTML = `
+    <div class="award-section">
+      <div class="highlight-winner">
+        ${createNetworkCard(award.p1, 1, false)}
+      </div>
+      <div class="highlight-runners-up">
+        ${createNetworkCard(award.p2, 2, true)}
+        ${createNetworkCard(award.p3, 3, true)}
       </div>
     </div>
   `;
@@ -99,19 +122,15 @@ function renderGridAward(award: Award, containerId: string) {
   container.innerHTML += html;
 }
 
-function renderNetworkAward(award: NetworkAward, containerId: string) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-  container.innerHTML = `
-    <div class="award-section" id="${slugify(award.name)}">
-      <h3>${award.name}</h3>
-      <div class="podcasts">
-        ${createNetworkCard(award.p1, 1)}
-        ${createNetworkCard(award.p2, 2)}
-        ${createNetworkCard(award.p3, 3)}
-      </div>
-    </div>
-  `;
+function renderGridSection(awards: Award[], containerId: string) {
+  const categoryContainer = document.getElementById(containerId);
+  if (categoryContainer) {
+    categoryContainer.innerHTML = '';
+    categoryContainer.className = 'awards-grid';
+  }
+  awards.forEach(award => {
+    renderGridAward(award, containerId);
+  });
 }
 
 function renderTableOfContents(data: AwardsYear) {
@@ -141,83 +160,36 @@ function renderTableOfContents(data: AwardsYear) {
   `;
 }
 
-// Render the awards
-export function renderAllAwards(data: AwardsYear) {
-  // Add table of contents
+function renderAllAwards(data: AwardsYear) {
   renderTableOfContents(data);
-
-  // Podcast of the Year
   renderHighlightedAward(data.podcastOfTheYear, 'podcast-of-the-year');
-
-  // Category Awards - Grid Layout
-  const categoryContainer = document.getElementById('category-awards');
-  if (categoryContainer) {
-    categoryContainer.innerHTML = '';
-    categoryContainer.className = 'awards-grid';
-  }
-  data.bestPodcasts.forEach(award => {
-    renderGridAward(award, 'category-awards');
-  });
-
-  // Special Awards - Grid Layout
-  const specialContainer = document.getElementById('special-awards');
-  if (specialContainer) {
-    specialContainer.innerHTML = '';
-    specialContainer.className = 'awards-grid';
-  }
-  data.specialAwards.forEach(award => {
-    renderGridAward(award, 'special-awards');
-  });
-
-  // Favourites
-  const favouriteContainer = document.getElementById('favourite-awards');
-  if (favouriteContainer) {
-    favouriteContainer.innerHTML = '';
-    favouriteContainer.className = 'awards-grid';
-  }
-  data.favourites.forEach(award => {
-    renderGridAward(award, 'favourite-awards');
-  });
-
-  // Network Award
-  renderNetworkAward(data.networkAward, 'network-award');
+  renderGridSection(data.bestPodcasts, 'category-awards');
+  renderGridSection(data.specialAwards, 'special-awards');
+  renderGridSection(data.favourites, 'favourite-awards');
+  renderHighlightedNetworkAward(data.networkAward, 'network-award');
 }
 
-
-// Run when DOM is ready
-const awardsData: Record<string, AwardsYear> = {
-  '2025': podcastAwards2025,
-  '2024': podcastAwards2024
-};
-
-function handleYearChange(event: Event) {
+// Event Handler
+function handleYearChange(event: Event): void {
   const select = event.target as HTMLSelectElement;
   const year = select.value;
   const data = awardsData[year];
-  if (data) {
-    renderAllAwards(data);
+  if (!data) return;
+  renderAllAwards(data);
+}
+
+// Initial Setup
+function setup(): void {
+  renderAllAwards(awardsData['2025']);
+  const yearSelector = document.getElementById('year-selector');
+  if (yearSelector) {
+    yearSelector.addEventListener('change', handleYearChange);
   }
 }
 
 // Run when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    // Initial render
-    renderAllAwards(podcastAwards2025);
-
-    // Setup year selector
-    const yearSelector = document.getElementById('year-selector');
-    if (yearSelector) {
-      yearSelector.addEventListener('change', handleYearChange);
-    }
-  });
+  document.addEventListener('DOMContentLoaded', () => setup());
 } else {
-  // Initial render if already loaded
-  renderAllAwards(podcastAwards2025);
-
-  // Setup year selector if already loaded
-  const yearSelector = document.getElementById('year-selector');
-  if (yearSelector) {
-    yearSelector.addEventListener('change', handleYearChange);
-  }
+  setup();
 }

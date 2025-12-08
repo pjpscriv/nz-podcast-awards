@@ -7,7 +7,7 @@
     - One million Google searches
 */
 
-import { TheSpinoff, FrankPodcasts, BHN } from './network-data';
+import { TheSpinoff, FrankPodcasts, BHN } from './networks';
 import {
   KellyTarltonsFinalTreasureHunt,
   FuryoftheSmall,
@@ -55,8 +55,8 @@ import {
   PaulTheOtherOnePodcast,
   TheArtfulDodger,
   ThatsJustCriminal,
-} from './show-data';
-import type { AwardsYear } from './types';
+} from './shows';
+import type { AwardsYear } from '../types';
 
 
 export const podcastAwards2025: AwardsYear = {

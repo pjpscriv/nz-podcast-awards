@@ -1,4 +1,4 @@
-import type { Podcast } from './types';
+import type { Podcast } from '../types';
 
 
 // Podcasts for 2025 awards
@@ -656,7 +656,6 @@ export const InspiringJourneysThroughMusic: Podcast = {
     link: 'https://sounz.org.nz/search/content?q=SOUNZ+podcasts&type=podcast_episode'
   }]
 };
-
 export const TheGirlsInterrupted: Podcast = {
   title: 'The Girls Interrupted',
   image: 'TheGirlsUninterrupted.jpg',
@@ -672,7 +671,6 @@ export const TheGirlsInterrupted: Podcast = {
     link: 'https://open.spotify.com/show/44SYEFX8j1xP6UE156Vt7N'
   }]
 };
-
 export const KiwiYarns: Podcast = {
   title: 'Kiwi Yarns',
   image: 'KiwiYarns.jpg',
@@ -688,7 +686,6 @@ export const KiwiYarns: Podcast = {
     link: 'https://interactives.stuff.co.nz/kiwi-yarns-podcast/'
   }]
 };
-
 export const HeReoTawhito: Podcast = {
   title: 'He Reo Tawhito: Conversations About Mōteatea',
   image: 'HeReoTawhitoConversationsAboutMōteatea.jpg',
@@ -704,7 +701,6 @@ export const HeReoTawhito: Podcast = {
     type: 'apple'
   }]
 };
-
 export const ThePayoff: Podcast = {
   title: 'The Payoff',
   image: 'ThePayoff.jpg',
@@ -720,7 +716,6 @@ export const ThePayoff: Podcast = {
     link: 'https://www.sharesies.nz/podcasts/the-payoff'
   }]
 };
-
 export const ThisIsKiwi: Podcast = {
   title: 'This Is Kiwi',
   image: 'ThisisKiwi.jpg',
@@ -736,7 +731,6 @@ export const ThisIsKiwi: Podcast = {
     type: 'website'
   }]
 };
-
 export const LeadOnPurposeWithJamesLaughlin: Podcast = {
   title: 'Lead on Purpose with James Laughlin',
   image: 'LeadonPurposewithJamesLaughlin.jpg',
@@ -752,7 +746,6 @@ export const LeadOnPurposeWithJamesLaughlin: Podcast = {
     link: 'https://www.jjlaughlin.com/podcast'
   }]
 };
-
 export const PowrUp: Podcast = {
   title: 'PowrUp',
   image: 'Powrup.jpg',
@@ -768,7 +761,6 @@ export const PowrUp: Podcast = {
     link: 'https://powrsuit.com/the-powrup-podcast/'
   }],
 };
-
 export const DanBainsSleepyTimeMumbles: Podcast = {
   title: 'Dan Bains Sleepy Time Mumbles',
   image: 'DanBainsSleepyTimeMumbles.jpg',
@@ -784,7 +776,6 @@ export const DanBainsSleepyTimeMumbles: Podcast = {
     link: 'https://sleepytime.buzzsprout.com/'
   }],
 };
-
 export const TheWorkingGroup: Podcast = {
   title: 'The Working Group - NZ\'s Best Weekly Political Podcast',
   image: 'TheWorkingGroup.jpg',
@@ -800,7 +791,6 @@ export const TheWorkingGroup: Podcast = {
     type: 'website'
   }],
 }
-
 export const TheHoon: Podcast = {
   title: 'The Hoon',
   image: 'TheHoon.jpg',
@@ -816,7 +806,6 @@ export const TheHoon: Podcast = {
     link: 'https://thekaka.substack.com/s/hoons'
   }],
 };
-
 export const Juggernaut: Podcast = {
   title: 'Juggernaut: The Story of the Fourth Labour Government',
   image: 'Juggernaut.jpg',
@@ -832,8 +821,6 @@ export const Juggernaut: Podcast = {
     type: 'website'
   }],
 };
-
-
 export const AlicesSoapbox: Podcast = {
   title: 'WOMENZSPORTS presents Alice\'s Soapbox',
   image: 'WOMENZSPORTSpresentsAlicesSoapbox.jpg',

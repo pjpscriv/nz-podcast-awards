@@ -1,12 +1,11 @@
 /* Sources:
    - https://www.nzpodcastawards.com/copy-of-2024-winners
-   - 
-
+   - One million Google searches
 */
 
-import { FrankPodcasts, StuffAudio, TheSpinoff } from "./network-data";
-import { AlicesSoapbox, BetweenTwoBeers, BHNBigHairyNews, BigStuffQuiz, DanBainsSleepyTimeMumbles, DearJane, EndingLifeWell, EVQuest, ExtremelyCasualGamers, FreshMoni, FullDisclosureWithKarenOLeary, GetFlushed, GoneByLunchtime, HeReoTawhito, HistoryOfAotearoaNewZealand, InspiringJourneysThroughMusic, Interconnector, JenBlack, JohnRopiha, Juggernaut, KiwiYarns, LeadOnPurposeWithJamesLaughlin, LeagueOfOurOwn, MaiMorningCrew, NavigatingAdultADHD, NoSuchThingAsNormal, PowrUp, Scigest, SpearoDiaries, TheBoyintheWater, TheCryptidFactor, TheDOCSoundsOfSciencePodcast, TheDomHarveyPodcast, TheElectricRodeo, TheGirlsInterrupted, TheGoodSexProject, TheHelloFrequency, TheHoon, TheMorningShift, ThePayoff, TheTrialSeason2, TheWorkingGroup, TheWorstIdeaOfAllTime, ThisIsKiwi, TuneintoNaturewithKarthic, Untidy, WatchingTwoDetectives, WellingtonParanormal, Āio } from "./show-data";
-import { AwardsYear } from "./types";
+import { FrankPodcasts, StuffAudio, TheSpinoff } from "./networks";
+import { AlicesSoapbox, BetweenTwoBeers, BHNBigHairyNews, BigStuffQuiz, DanBainsSleepyTimeMumbles, DearJane, EndingLifeWell, EVQuest, ExtremelyCasualGamers, FreshMoni, FullDisclosureWithKarenOLeary, GetFlushed, GoneByLunchtime, HeReoTawhito, HistoryOfAotearoaNewZealand, InspiringJourneysThroughMusic, Interconnector, JenBlack, JohnRopiha, Juggernaut, KiwiYarns, LeadOnPurposeWithJamesLaughlin, LeagueOfOurOwn, MaiMorningCrew, NavigatingAdultADHD, NoSuchThingAsNormal, PowrUp, Scigest, SpearoDiaries, TheBoyintheWater, TheCryptidFactor, TheDOCSoundsOfSciencePodcast, TheDomHarveyPodcast, TheElectricRodeo, TheGirlsInterrupted, TheGoodSexProject, TheHelloFrequency, TheHoon, TheMorningShift, ThePayoff, TheTrialSeason2, TheWorkingGroup, TheWorstIdeaOfAllTime, ThisIsKiwi, TuneintoNaturewithKarthic, Untidy, WatchingTwoDetectives, WellingtonParanormal, Āio } from "./shows";
+import { AwardsYear } from "../types";
 
 
 export const podcastAwards2024: AwardsYear = {

@@ -31,6 +31,7 @@ export type NetworkAward = {
   p1: Network;
   p2: Network;
   p3: Network;
+  sponsor?: string;
 }
 
 export type AwardsYear = {

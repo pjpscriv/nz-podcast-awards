@@ -1,4 +1,4 @@
-import type { Network } from './types';
+import type { Network } from '../types';
 
 // Networks for 2025 awards
 export const TheSpinoff: Network = {
@@ -24,3 +24,5 @@ export const StuffAudio: Network = {
   link: 'https://interactives.stuff.co.nz/podcasts/',
   image: 'StuffAudio.jpg'
 }
+
+// Networks for 2023 awards
